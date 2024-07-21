@@ -57,7 +57,7 @@ const RaceDetails = () => {
         }
 
 
-    }, [session.session_key])
+    }, [session.session_key,session,finalPositions])
 
 
 

@@ -74,7 +74,7 @@ const F1EventSessions = () => {
 
 
         fetchSessions();
-    }, []);
+    }, [f1RaceLocations]);
 
 
 
