@@ -13,38 +13,44 @@ const RaceDetails = () => {
     useEffect(() => {
         const getDriverData = async () => {
 
-            let apiUrl = `https://api.openf1.org/v1/position?session_key=${session.session_key}`
-            let response = await axios.get(apiUrl)
-            const data = response.data
+            try {
 
-            const driverPositions = {};
+                let apiUrl = `https://api.openf1.org/v1/position?session_key=${session.session_key}`
+                let response = await axios.get(apiUrl)
+                const data = response.data
 
-            data.forEach(position => {
-                const { driver_number, position: pos, date } = position;
-                if (!driverPositions[driver_number] || new Date(date) > new Date(driverPositions[driver_number].date)) {
-                    driverPositions[driver_number] = { position: pos, date };
-                }
-            });
+                const driverPositions = {};
 
-            console.log(data)
+                data.forEach(position => {
+                    const { driver_number, position: pos, date } = position;
+                    if (!driverPositions[driver_number] || new Date(date) > new Date(driverPositions[driver_number].date)) {
+                        driverPositions[driver_number] = { position: pos, date };
+                    }
+                });
 
-            const sortedFinalPositions = Object.entries(driverPositions)
-                .map(([driver_number, { position }]) => ({ driver_number, position }))
-                .sort((a, b) => a.position - b.position);
+                console.log(data)
 
-            setFinalPositions(sortedFinalPositions);
+                const sortedFinalPositions = Object.entries(driverPositions)
+                    .map(([driver_number, { position }]) => ({ driver_number, position }))
+                    .sort((a, b) => a.position - b.position);
 
-            let apiUrl2 = `https://api.openf1.org/v1/drivers?session_key=${session.session_key}`;
-            const response2 = await axios.get(apiUrl2);
-            let driverArray = response2.data;
-            driverArray.forEach((driver) => {
-                const positionData = finalPositions.find(element => parseInt(element.driver_number) === driver.driver_number);
-                driver["position"] = positionData ? positionData.position : "-";
-            });
+                setFinalPositions(sortedFinalPositions);
 
-            setSortedDriverData(driverArray.sort((a, b) => a.position - b.position))
+                let apiUrl2 = `https://api.openf1.org/v1/drivers?session_key=${session.session_key}`;
+                const response2 = await axios.get(apiUrl2);
+                let driverArray = response2.data;
+                driverArray.forEach((driver) => {
+                    const positionData = finalPositions.find(element => parseInt(element.driver_number) === driver.driver_number);
+                    driver["position"] = positionData ? positionData.position : "-";
+                });
 
+                console.log(driverArray)
 
+                setSortedDriverData(driverArray.sort((a, b) => a.position - b.position))
+
+            } catch (error) {
+                console.log("Error fetching data.")
+            }
 
 
 
@@ -53,11 +59,9 @@ const RaceDetails = () => {
         if (session) {
             getDriverData()
 
-
         }
 
-
-    }, [session.session_key,session,finalPositions])
+    }, [session, finalPositions])
 
 
 
@@ -66,22 +70,21 @@ const RaceDetails = () => {
     return (
         <div>
             <h1>{session.session_name}</h1>
-            {session ? (
+            {session && sortedDriverData.length > 0 ? (
                 <div>
                     <p>Session Key: {session.session_key}</p>
                     {sortedDriverData.map((driver, index) => (
                         <div key={index}>
                             <p>{driver.position}</p>
                             <p >{driver.driver_number}</p>
-                            <p>{ driver.full_name}</p>
-                            <p>{driver.team_name}</p>
+                            <p>{driver.full_name}</p>
                         </div>
 
                     ))}
 
                 </div>
             ) : (
-                <p>No session data found</p>
+                <p>Loading...</p>
             )}
         </div>
     );

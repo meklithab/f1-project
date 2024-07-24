@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
-import Flag from 'react-world-flags'
+import Flag from 'react-world-flags';
 import { useNavigate } from 'react-router-dom';
 
 
 const F1EventSessions = () => {
-
-    const f1RaceLocations = [
+    
+    const f1RaceLocations = useMemo(() => ([
         { country: "Australia", description: "Australian Grand Prix", date: "2024-03-17" },
         { country: "Bahrain", description: "Bahrain Grand Prix", date: "2024-03-31" },
         { country: "China", description: "Chinese Grand Prix", date: "2024-04-14" },
@@ -26,14 +26,13 @@ const F1EventSessions = () => {
         { country: "Brazil", description: "Brazilian Grand Prix", date: "2024-11-10" },
         { country: "United States", description: "Las Vegas Grand Prix", date: "2024-11-24" },
         { country: "United Arab Emirates", description: "Abu Dhabi Grand Prix", date: "2024-12-08" }
-    ];
-
-    console.log(f1RaceLocations);
+    ]), []);
 
     const [sessions, setSessions] = useState([]);
     const [names, setNames] = useState([]);
-    const [openIndex, setOpenIndex] = useState()
-    const [upcomingRaces, setUpcomingRaces] = useState([])
+    const [openIndex, setOpenIndex] = useState(null);
+    const [upcomingRaces, setUpcomingRaces] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -55,136 +54,82 @@ const F1EventSessions = () => {
 
                     setSessions(filteredSessions);
 
-
-                    const locationNames = filteredSessions.map(element => element.country_name)
+                    const locationNames = filteredSessions.map(element => element.country_name);
                     const uniqueLocationNames = [...new Set(locationNames)];
-                    setNames(uniqueLocationNames)
-
+                    setNames(uniqueLocationNames);
 
                     const currentDate = new Date();
                     const temp = f1RaceLocations.filter(element => new Date(element.date) > currentDate);
                     setUpcomingRaces(temp);
-
-
                 }
             } catch (e) {
                 console.log('Error fetching sessions.');
+            } finally {
+                setLoading(false);
             }
         };
-
 
         fetchSessions();
     }, [f1RaceLocations]);
 
-
-
     const handleClick = (session) => {
-
         navigate('/races/qualifying', { state: { session } });
-
-
-
-    }
-
-
-
+    };
 
     return (
         <>
-            <div>
+            <div className="c">
                 <h1>F1 Event Sessions</h1>
-                {sessions.length > 0 ? (
-                    <>
-
-                        {names.map((name, index) => (
-
-
-                            <div key={index} onMouseEnter={() => setOpenIndex(index)} onMouseLeave={() => setOpenIndex(null)}>
-                                {name}
-
-
-
-                                <Flag code={sessions.find(element => element.country_name === name).country_code} height="16" />
-
-                                {openIndex === index && (
-
-
-                                    <div>
-
-                                        <h5>Location: {sessions.find(element => element.country_name === name).location}</h5>
-                                        <h5>{new Date(sessions.find(element => element.country_name === name).date_end).toLocaleDateString()}</h5>
-
-
-
-
-                                        {sessions.filter(element => element.country_name === name && element.session_name === 'Qualifying').map((index) => (
-                                            <button key={index} onClick={() => {
-                                                const passedSession = sessions.find(element => element.country_name === name && element.session_name === "Qualifying")
-                                                handleClick(passedSession)
-                                            }}>Qualifying</button>
-                                        ))}
-
-
-
-
-                                        {sessions.filter(element => element.country_name === name && element.session_name === 'Race').map((index) => (
-                                            <button key={index} onClick={() => {
-                                                const passedSession = sessions.find(element => element.country_name === name && element.session_name === "Race")
-                                                handleClick(passedSession)
-                                            }}>Race</button>
-                                        ))}
-
-
-                                        {sessions.filter(element => element.country_name === name && element.session_name === 'Sprint').map((index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => {
-                                                    const passedSession = sessions.find(element => element.country_name === name && element.session_name === "Sprint")
-                                                    handleClick(passedSession)
-                                                }}>Sprint</button>
-                                        ))}
-                                    </div>
-                                )}
-
-
-                            </div>
-                        ))}
-
-
-
-
-
-
-
-                    </>
+                {loading ? (
+                    <p>Loading Events ...</p>
                 ) : (
-                    <p>No sessions found for the specified event.</p>
+                    <>
+                        {names.length > 0 ? (
+                            names.map((name, index) => (
+                                <div key={index} onMouseEnter={() => setOpenIndex(index)} onMouseLeave={() => setOpenIndex(null)}>
+                                    {name}
+                                    <Flag className="flag" code={sessions.find(element => element.country_name === name).country_code} height="16" />
+                                    {openIndex === index && (
+                                        <div className="dropdown-content">
+                                            <h5>Location: {sessions.find(element => element.country_name === name).location}</h5>
+                                            <h5>{new Date(sessions.find(element => element.country_name === name).date_end).toLocaleDateString()}</h5>
+                                            {sessions.filter(element => element.country_name === name && element.session_name === 'Qualifying').map((session, sessionIndex) => (
+                                                <button key={sessionIndex} onClick={() => handleClick(session)}>Qualifying</button>
+                                            ))}
+                                            {sessions.filter(element => element.country_name === name && element.session_name === 'Race').map((session, sessionIndex) => (
+                                                <button key={sessionIndex} onClick={() => handleClick(session)}>Race</button>
+                                            ))}
+                                            {sessions.filter(element => element.country_name === name && element.session_name === 'Sprint').map((session, sessionIndex) => (
+                                                <button key={sessionIndex} onClick={() => handleClick(session)}>Sprint</button>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ))
+                        ) : (
+                            <p>No events found.</p>
+                        )}
+                    </>
                 )}
-
-
             </div>
 
-            <div>
-                {upcomingRaces.length > 0 ?
-                    (
-                        <>
-                            <div >
+            <div className="upcoming-races">
+                {loading ? (
+                    <p>Loading Upcoming Races...</p>
+                ) : (
+                    <>
+                        {upcomingRaces.length > 0 ? (
+                            <div>
                                 {upcomingRaces.map((race, index) => (
-
-
-                                    <p key={index}>{race.description}" "{race.date}</p>
-
-
-
+                                    <p key={index}>{race.description} - {race.date}</p>
                                 ))}
                             </div>
-                        </>
-
-                    ) : (
-                        <p>Loading...</p>)}
-
+                        ) : (
+                            <p>No upcoming races.</p>
+                        )}
+                    </>
+                )}
             </div>
-
         </>
     );
 };

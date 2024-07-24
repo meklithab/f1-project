@@ -1,60 +1,48 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import "../style/Dropdown.css";
 
 export default function Dropdown(props) {
     const [isOpen, setOpen] = useState(false);
-    const selectedItem = props.title;
-
-    let navigate = useNavigate()
-
-
+    const { title, content } = props;
+    const navigate = useNavigate();
 
     const handleItems = () => {
-        console.log(props.title);
-        console.log(selectedItem);
-        switch (selectedItem) {
+        switch (title) {
             case 'Races':
-                navigate('/races')
-
+                navigate('/races');
                 break;
             case 'Drivers':
-                navigate('/drivers')
+                navigate('/drivers');
                 break;
             case 'Teams':
-                navigate('/teams')
+                navigate('/teams');
                 break;
             case 'Standings':
-                navigate('Standings')
+                navigate('/Standings'); 
                 break;
-
             default:
                 break;
         }
-
-
-
     };
 
     return (
-        <>
-            <div className="container">
+        <div className="container-2">
+            <div className='row-2'>
                 <button
+                    className='col-2'
                     onMouseEnter={() => setOpen(true)}
                     onMouseLeave={() => setOpen(false)}
                     onClick={handleItems}
                 >
-                    {props.title}
+                    {title}
                     {isOpen && (
                         <div className="dropdown-content">
-                            {props.content}
+                            {content}
                         </div>
                     )}
                 </button>
-
             </div>
-        </>
+        </div>
     );
 }
