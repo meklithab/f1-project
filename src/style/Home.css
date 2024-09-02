@@ -1,31 +1,12 @@
-.containers {
-    /* Set the container height to full viewport height */
-    background-image: url('images/pixelcut-export.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 5px;
-    padding: 15px;
-}
-
-.rows {
+.first-container{
     display: flex;
-    height: 88%;
-    align-items: center;
-    margin: 20px;
+   align-content: center; 
+   justify-content: center;
+    margin: 60px;
 }
 
-.cols {
-    flex-basis: 50%;
+.section {
+    display: flex;
+    justify-content: center;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 100px;
-}
-
-p {
-    color: #ffffff;
-    font-size: 13px;
-    line-height: 15px;
-}

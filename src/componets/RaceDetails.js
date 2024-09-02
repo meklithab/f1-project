@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import "../style/RaceDetails.css"
 
 const RaceDetails = () => {
     const location = useLocation();
@@ -69,18 +70,29 @@ const RaceDetails = () => {
 
     return (
         <div>
-            <h1>{session.session_name}</h1>
+            <h1 class="font-bold text-center text-2xl">{(session.session_name).toUpperCase()} RESULTS</h1>
             {session && sortedDriverData.length > 0 ? (
                 <div>
-                    <p>Session Key: {session.session_key}</p>
-                    {sortedDriverData.map((driver, index) => (
-                        <div key={index}>
-                            <p>{driver.position}</p>
-                            <p >{driver.driver_number}</p>
-                            <p>{driver.full_name}</p>
-                        </div>
+                    {/*   <p>Session Key: {session.session_key}</p> */}
 
-                    ))}
+                  
+                    <table>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Num</th>
+                            <th>Name</th>
+                            <th>Team</th>
+                        </tr>
+                        {sortedDriverData.map((driver, index) => (
+                            <tr key={index}>
+                                <td>{driver.position}</td>
+                                <td>{driver.driver_number}</td>
+                                <td>{driver.full_name}</td>
+                                <td>{driver.team_name}</td>
+                            </tr>
+
+                        ))}
+                    </table>
 
                 </div>
             ) : (

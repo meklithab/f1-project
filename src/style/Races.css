@@ -1,0 +1,71 @@
+.main{
+    height: 100vh;
+
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.past-races,
+.upcoming-races {
+
+    margin: 1.1rem;
+    border: 1px solid white;
+
+
+}
+
+.cont{
+    background-color: #dde9d0;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+    
+            width: 25rem;
+            padding: 1.5rem;
+        
+   
+}
+
+.country-container{
+    margin: 0.5rem;
+    color:rgb(57, 87, 77);
+    border:1px solid #9ea392;
+    padding: 1rem;
+    padding-left: 2rem;
+    box-shadow: darkgray 0.2rem 0.15rem  ;
+    
+
+}
+
+.country-name{
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.flag{
+    display: inline;
+    width: 2.5rem;
+
+   
+}
+
+.buttons{
+    width: 7rem;
+    height: auto;
+    padding: 0.1rem;
+    margin: 0.5rem;
+    font-size: 0.8rem;
+    border: rgb(143, 172, 109) 0.1rem solid;
+}
+.upcoming-races {
+height: 18rem; 
+min-height: 20rem; 
+max-height: 50rem;  
+width: 25rem;
+background-color: rgba(210, 235, 189, 0.2);
+    padding: 25px;
+}

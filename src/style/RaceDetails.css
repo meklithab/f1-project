@@ -1,0 +1,17 @@
+table {
+  text-align: center;
+  margin: auto;
+  text-wrap: wrap;
+  padding: 5rem ;
+   
+}
+
+th {
+    background-color:rgb(247, 247, 247);
+    padding: 1rem 3rem;
+}
+td{
+    padding:1rem;
+    margin: 3rem;
+    background-color: rgb(243, 245, 240);
+}
