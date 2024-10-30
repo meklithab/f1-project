@@ -1,13 +1,25 @@
-// src/Standings.js
+import React, { useState } from "react";
+import DriversC from "../componets/DriversC";
+import ConstructorStandings from "../componets/Constructor";
 
 const Standings = () => {
-    
-    return (
-        <div>
-            <h1>Current F1 Standings</h1>
-            
-        </div>
-    );
+    const [current, setCurrent] = useState(false)
+    return (<div>
+        <button onClick={() => setCurrent(false)}>
+            Constructors
+        </button>
+        <button onClick={() => setCurrent(true)}>
+            Drivers
+        </button>
+
+        {current ? (<DriversC />) : (
+            <ConstructorStandings />
+        )}
+
+
+    </div>);
+
+
 };
 
 export default Standings;
