@@ -55,14 +55,14 @@ export default function Dropdown(props) {
     return (
         <div
             className="container-2"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+            onClick={handleItems}
             style={{ backgroundImage: `url(${src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-            <div className='row-2'>
                 <div
-                    className='col-2'
-                    onMouseEnter={() => setOpen(true)}
-                    onMouseLeave={() => setOpen(false)}
-                    onClick={handleItems}
+                    className='col-1'
+                 
                 >
                     {title}
                     {isOpen && (
@@ -70,7 +70,7 @@ export default function Dropdown(props) {
                             {content}
                         </div>
                     )}
-                </div>
+                
             </div>
         </div>
     );

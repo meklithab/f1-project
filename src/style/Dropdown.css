@@ -2,11 +2,73 @@
 
     width: 12rem;
     height: 17rem;
-    margin: 2rem;
+    margin: 0.75rem;
     border-radius: 1rem;
+    position: relative;
+
+}
+.container-2:hover{
+    cursor: pointer;
+
 
 }
 
-div{
-    color: orange;
+.col-1{
+    position: absolute;
+    bottom: 0;
+    margin: 1rem;
+    color: white;
+    font-weight:bold;
+}
+.dropdown-content{
+    font-weight: 300;
+}
+
+@media (max-width:890px) {
+    .container-2 {
+        width: 9rem;
+        height: 12rem;
+        margin: 0.75rem;
+    }
+
+    .col-1 {
+        margin: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 650px) {
+    .container-2 {
+        width: 8rem;
+        height: 11rem;
+        margin: 0.75rem;
+    }
+
+    .col-1 {
+        margin: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 620px) {
+    .container-2 {
+        width: 6rem;
+        height: 9.75rem;
+        margin: 0.25rem;
+    }
+
+    .col-1 {
+        margin: 0.35rem;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 620px) {
+    .container-2 {
+        width: 5.5rem;
+        height: 9.75rem;
+        margin: 0.25rem;
+    }
+
+    .col-1 {
+        margin: 0.35rem;
+        font-size: 0.9rem;
+    }
 }

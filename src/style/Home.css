@@ -1,11 +1,76 @@
-.first-container{
-    display: flex;
-   align-content: center; 
-   justify-content: center;
-    margin: 60px;
+.main{
+        margin: 1rem;
+       height: 100vh;
+        width: 100%;
+      
+        
 }
+.section-1 {
 
-.section {
     display: flex;
     justify-content: center;
+    color: white;
+    
 }
+.logo{
+   width: 4.5rem;
+   height: 2.5rem;
+   margin: 1rem;
+   margin-right:4rem;
+
+}
+.menu{
+    
+    display:  inline;
+    margin: 2rem;
+    color: white;
+
+}
+
+.options{
+    display: inline;
+    margin: 1.5rem;
+}
+.section-2{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.section-2-1{
+    text-wrap: wrap;
+    margin-top: 8rem;
+    margin-left: 8rem;
+    position: relative;
+    
+}
+.title{
+    color: white;
+    
+    font-weight:1000;
+}
+.description {
+        color: white;
+        max-width: 750px;
+        padding: 1rem;
+        font-weight: 100;
+    }
+
+.section-2-2{
+
+    align-self: flex-end;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: end;
+    
+
+}
+
+
+
+

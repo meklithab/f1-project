@@ -2,29 +2,44 @@
 import React from 'react';
 import Dropdown from '../componets/Dropdown';
 import "../style/Home.css"
+import logo from "../images/fp1/logo.png"
+import background from "../images/fp1/races.jpg"
+
 
 export default function Home() {
     return (
-        <>
-            <div className="main">
-                <div className="section-1">
-                    <div className="">
 
+        <div className="main"
+            style={{ backgroundImage: `url(${background})`, backgroundSize: 'cover' }}
+        >
+            <div className='section-1'>
+                <img className='logo' src={logo} alt='logo' />
+                <ul className='menu'>
+                    <li className='options'>Home</li>
+                    <li className='options'>Blog</li>
+                    <li className='options'>Info</li>
+                </ul>
 
-                        <h1 className="">F1</h1>
-                        <p className="">
-                            Formula 1 is a premier international single-seater auto racing championship that features the world's fastest cars and top drivers competing on various circuits around the globe.
+            </div>
 
-                        </p>
-                    </div>
-                    <div className="section-2">
-                        <Dropdown title="Races" content="Information about upcoming and past races." />
-                        <Dropdown title="Drivers" content="Profiles and stats of all current drivers on the grid." />
-                        <Dropdown title="Teams" content="Details about all F1 teams, their history, and performance." />
-                        <Dropdown title="Standings" content="Current standings of drivers and teams in the F1 championship." />
-                    </div>
+            <div className="section-2">
+                <div className="section-2-1">
+
+                    <p className="description">
+                        <span className="title">
+                            Formula 1 </span>  is a premier international single-seater auto racing championship that features the world's fastest cars and top drivers competing on various circuits around the globe. The sport showcases cutting-edge technology, with cars designed to achieve incredible speeds and handling precision.
+                    </p>
+
+                </div>
+                <div className="section-2-2">
+                    <div><Dropdown title="Races" content="Information about upcoming and past races." /></div>
+                    <div><Dropdown title="Drivers" content="Profiles and stats of all current drivers on the grid." /></div>
+                    <div><Dropdown title="Teams" content="Details about all F1 teams, their history, and performance." /></div>
+                    <div><Dropdown title="Standings" content="Current standings of drivers and teams in the F1 championship." /></div>
+
                 </div>
             </div>
-        </>
+        </div>
+
     );
 }
