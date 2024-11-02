@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import "../style/RaceDetails.css"
+import background from "../images/fp1/redblack.jpg"
+import NavBar from './NavBar';
 
 const RaceDetails = () => {
     const location = useLocation();
@@ -69,8 +71,12 @@ const RaceDetails = () => {
 
 
     return (
-        <div>
-            <h1 class="font-bold text-center text-2xl">{(session.session_name).toUpperCase()} RESULTS</h1>
+        <div className='details-main' >
+            <div style={{ backgroundImage: `url(${background})`, backgroundSize: "contain", height:"10rem"}}><NavBar/></div>
+            
+            <h1 className="font-bold  text-center p-7 text-4xl text-red-600">
+                {(session.session_name).toUpperCase()} RESULTS
+            </h1>
             {session && sortedDriverData.length > 0 ? (
                 <div>
                     {/*   <p>Session Key: {session.session_key}</p> */}
@@ -78,8 +84,8 @@ const RaceDetails = () => {
                   
                     <table>
                         <tr>
-                            <th>Pos</th>
-                            <th>Num</th>
+                            <th>Position</th>
+                            <th>Race Number</th>
                             <th>Name</th>
                             <th>Team</th>
                         </tr>
@@ -96,7 +102,7 @@ const RaceDetails = () => {
 
                 </div>
             ) : (
-                <p>Loading...</p>
+                <p style={{color:"white"}}>Loading...</p>
             )}
         </div>
     );

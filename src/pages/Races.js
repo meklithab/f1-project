@@ -111,19 +111,22 @@ const F1EventSessions = () => {
             <div className='race-main'>
 
                 <div className='top-image' style={{ backgroundImage: `url(${img})`, backgroundSize: 'contain' }} >
-                    <NavBar/>
-                   
+                    <NavBar />
+
                 </div>
 
                 <div className="main-container">
                     <div className='past-races'>
                         {loading ? (
-                            <p>Loading Past Sessions...</p>
+                            <>
+                            <div style={{ margin: '5px', fontSize: "19px", fontWeight: 'bold', color: 'red' }}>PAST 2024 RACES RESULTS</div>
+                            <p style={{ color: "white" }}>Loading Past Sessions...</p>
+                        </>
                         ) : (
                             <>
 
                                 <div className="cont-race">
-                                        <div style={{ margin:'5px', fontSize:"19px", fontWeight:'bold',color: 'red' }}>PAST 2024 RACES RESULTS</div>
+                                    <div style={{ margin: '5px', fontSize: "19px", fontWeight: 'bold', color: 'red' }}>PAST 2024 RACES RESULTS</div>
                                     {names.length > 0 ? (
                                         names.map((name, index) => (
                                             <div className="country-container" key={index} onClick={() => setOpenIndex(index)}>
