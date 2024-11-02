@@ -5,12 +5,12 @@
     margin: 0.75rem;
     border-radius: 1rem;
     position: relative;
-
+    box-shadow: 3px 4px 8px rgba(152, 73, 73, 0.6);
+    transition: transform 0.3s ease;
 }
 .container-2:hover{
     cursor: pointer;
-
-
+    transform: scale(1.07);
 }
 
 .col-1{

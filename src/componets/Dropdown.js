@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../style/Dropdown.css";
 import races from "../images/fp1/races.jpg"
 import drivers from "../images/fp1/dnd.jpg"
-import teams from "../images/fp1/teams.jpg"
+import teams from "../images/fp1/download.jpg"
 import standings from "../images/fp1/standings.jpg"
 
 export default function Dropdown(props) {

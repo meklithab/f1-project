@@ -7,6 +7,7 @@ import Drivers from './pages/Drivers';
 import Teams from './pages/Teams';
 import Standings from './pages/Standings';
 import QualifyingPage from './componets/RaceDetails';
+import InfoPage from './pages/InfoPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/teams' element={<Teams />} />
           <Route path='/standings' element={<Standings />} />
           <Route path='/races/qualifying' element={<QualifyingPage />} />
+          <Route path='/info' element={<InfoPage/>}/>
 
         </Routes>
 

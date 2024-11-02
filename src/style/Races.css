@@ -1,5 +1,13 @@
-.main{
-    height: 100vh;
+.race-main{
+
+    margin: 1rem;
+    background-color: black;
+  
+  
+
+}
+.top-image{
+height: 15rem; 
 
 }
 .main-container{
@@ -11,34 +19,37 @@
 .upcoming-races {
 
     margin: 1.1rem;
-    border: 1px solid white;
 
 
 }
 
-.cont{
-    background-color: #dde9d0;
-
+.cont-race{
+    background-color: black;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    
-    
-            width: 25rem;
-            padding: 1.5rem;
-        
+    width: 25rem;
+    padding: 1.5rem;
    
 }
 
 .country-container{
     margin: 0.5rem;
-    color:rgb(57, 87, 77);
-    border:1px solid #9ea392;
+    color:white;
+    border:1px solid #EE0000;
     padding: 1rem;
     padding-left: 2rem;
-    box-shadow: darkgray 0.2rem 0.15rem  ;
+    background-color: black;
+    transition:transform 0.5s ease;
+
     
 
+}
+
+.country-container:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    color: #EE0000;
 }
 
 .country-name{
@@ -46,26 +57,24 @@
     font-weight: bold;
 }
 
-.flag{
-    display: inline;
-    width: 2.5rem;
 
-   
-}
 
 .buttons{
     width: 7rem;
     height: auto;
-    padding: 0.1rem;
+    padding: 0.6rem;
     margin: 0.5rem;
     font-size: 0.8rem;
-    border: rgb(143, 172, 109) 0.1rem solid;
+    border: 0.5px solid white;
+
 }
 .upcoming-races {
+
+    color: white;
 height: 18rem; 
 min-height: 20rem; 
 max-height: 50rem;  
 width: 25rem;
-background-color: rgba(210, 235, 189, 0.2);
+background-color: black;
     padding: 25px;
 }
