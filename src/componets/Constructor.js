@@ -41,8 +41,8 @@ const ConstructorStandings = () => {
 
     return (
         <div>
-            <h2>F1 Constructor Standings</h2>
-            <table>
+            <h2 style={{fontWeight:"bold",color:"red",textAlign:"center",margin:"1rem"}}>F1 CONSTRUCTORS STANDINGS</h2>
+            <table style={{borderColor:'red'}}>
                 <thead>
                     <tr>
                         <th>Rank</th>

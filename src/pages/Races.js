@@ -29,8 +29,8 @@ const F1EventSessions = () => {
         { country: "Japan", description: "Japanese Grand Prix", date: "2024-09-22" },
         { country: "United States", description: "United States Grand Prix", date: "2024-10-20" },
         { country: "Mexico", description: "Mexican Grand Prix", date: "2024-10-27" },
-        { country: "Brazil", description: "Brazilian Grand Prix", date: "2024-11-10" },
-        { country: "United States", description: "Las Vegas Grand Prix", date: "2024-11-24" },
+        { country: "Brazil", description: "Brazilian Grand Prix", date: "2024-11-03" },
+        { country: "United States", description: "Las Vegas Grand Prix", date: "2024-11-23" },
         { country: "Qatar", description: "Qatar Grand Prix", date: "2024-12-01" },
 
         { country: "United Arab Emirates", description: "Abu Dhabi Grand Prix", date: "2024-12-08" }

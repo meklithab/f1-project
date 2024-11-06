@@ -3,7 +3,7 @@
   background-color: black;
 
 }
-table {
+/*.race-detail-*/table{
   text-align: center;
   margin: auto;
   text-wrap: wrap;
@@ -12,13 +12,13 @@ table {
 
 }
 
-th {
+/*.race-detail-*/th {
   background-color: black;
     color: white;
     padding: 1rem 3rem;
     border: 0.75px solid red;
 }
-td{
+/*.race-detail-*/td{
     padding:1rem;
     margin: 3rem;
     background-color: black;

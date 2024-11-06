@@ -82,19 +82,19 @@ const RaceDetails = () => {
                     {/*   <p>Session Key: {session.session_key}</p> */}
 
                   
-                    <table>
+                    <table className='race-detail-table'>
                         <tr>
-                            <th>Position</th>
-                            <th>Race Number</th>
-                            <th>Name</th>
-                            <th>Team</th>
+                            <th className='race-detail-th'>Position</th>
+                            <th className='race-detail-th'>Driver Number</th>
+                            <th className='race-detail-th'>Name</th>
+                            <th className='race-detail-th'>Team</th>
                         </tr>
                         {sortedDriverData.map((driver, index) => (
                             <tr key={index}>
-                                <td>{driver.position}</td>
-                                <td>{driver.driver_number}</td>
-                                <td>{driver.full_name}</td>
-                                <td>{driver.team_name}</td>
+                                <td className='race-detail-td'>{driver.position}</td>
+                                <td className='race-detail-td'>{driver.driver_number}</td>
+                                <td className='race-detail-td'>{driver.full_name}</td>
+                                <td className='race-detail-td'>{driver.team_name}</td>
                             </tr>
 
                         ))}

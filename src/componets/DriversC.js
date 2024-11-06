@@ -41,7 +41,7 @@ const DriversC = () => {
 
     return (
         <div>
-            <h2>F1 Driver Standings</h2>
+            <h2 style={{ fontWeight: "bold", color: "red", textAlign: "center", margin: "1rem" }}>F1 DRIVERS STANDINGS</h2>
             <table>
                 <thead>
                     <tr>

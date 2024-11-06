@@ -1,7 +1,6 @@
 
 
-import "./DriverData.css"
-import Flag from 'react-world-flags'
+import "../style/DriversData.css"
 
 const DriversData = ({ data }) => {
 
@@ -9,20 +8,34 @@ const DriversData = ({ data }) => {
     return (
         <>
 
-            <h1>Drivers List</h1>
 
-            {data.map((driver, index) => (
-                <div key={index}>
-                    <img src={driver.headshot_url} alt="Driver_img" />
-                    <p>{driver.full_name}</p>
-                    <p>{driver.driver_number}</p>
-                    <p>{driver.country_code}
-                        <Flag code={driver.country_code} height="16" />
+            <div className="main-driver">
+                <table >
 
-                    </p>
-                    <p>{driver.team_name}</p>
-                </div>
-            ))}
+                    <tr >
+                        <th ></th>
+                        <th >Name</th>
+                        <th >Driver Number</th>
+                        <th >Country</th>
+                        <th >Team</th>
+                    </tr>
+
+                    {data.map((driver, index) => (
+
+                      <tr key={index}>
+                            <td><img src={driver.headshot_url} alt="Driver_Image" /></td>
+                            <td><p className="driver-name">{driver.full_name}</p></td>
+                            <td> <p className="driver-num">{driver.driver_number}</p></td>
+                            <td><p>{driver.country_code} </p></td>
+                            <td><p className="driver-team">{driver.team_name}</p></td>
+
+
+                        </tr>
+
+
+                    ))}
+                </table>
+            </div>
 
         </>
     );

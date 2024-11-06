@@ -1,0 +1,17 @@
+.drivers-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: black;
+
+    
+    
+}
+
+.top-drivers-img{
+    height: 10rem;
+    background-color: black;
+   
+    
+}
+

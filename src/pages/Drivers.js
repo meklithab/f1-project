@@ -2,6 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DriveData from "../componets/DriverData"
 
+
+import "../style/Drivers.css"
+import NavBar from "../componets/NavBar";
+
+import img from "../images/fp1/redblack.jpg"
 const Drivers = () => {
     const [driversData, setDriversData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -19,7 +24,7 @@ const Drivers = () => {
                 setLoading(true);
             });
     }, []);
- 
+
     if (loading) {
         return <h1>Loading...</h1>;
     }
@@ -27,8 +32,17 @@ const Drivers = () => {
 
     return (
         <>
-            <h1>Drivers</h1>
-            <DriveData data={driversData} />
+            <div className="drivers-container">
+                <div className='top-image' style={{ backgroundImage: `url(${img})`, backgroundSize: 'contain' }} >
+                    <NavBar />
+
+                </div>
+                                <div style={{margin:"4rem"}}>
+              
+                <div>            <DriveData data={driversData} />
+                </div>
+                </div>
+            </div>
 
         </>
     );
