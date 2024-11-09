@@ -8,9 +8,10 @@ const DriversC = () => {
     useEffect(() => {
         const fetchStandings = async () => {
             try {
-                const response = await fetch("http://ergast.com/api/f1/current/driverStandings.json");
+                const response = await fetch("https://ergast.com/api/f1/current/driverStandings.json");
                 const data = await response.json();
 
+                
                 const organizedStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(driver => ({
                     rank: driver.position,
                     driver_name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
