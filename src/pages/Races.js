@@ -9,31 +9,30 @@ import NavBar from '../componets/NavBar';
 
 const F1EventSessions = () => {
     const f1RaceLocations = useMemo(() => ([
-        { country: "Bahrain", description: "Bahrain Grand Prix", date: "2024-03-03" },
-        { country: "Saudi Arabia", description: "Saudi Arabian Grand Prix", date: "2024-03-10" },
-        { country: "Australia", description: "Australian Grand Prix", date: "2024-03-24" },
-        { country: "China", description: "Chinese Grand Prix", date: "2024-04-07" },
-        { country: "Azerbaijan", description: "Azerbaijan Grand Prix", date: "2024-04-21" },
-        { country: "United States", description: "Miami Grand Prix", date: "2024-05-05" },
-        { country: "Italy", description: "Emilia Romagna Grand Prix", date: "2024-05-19" },
-        { country: "Monaco", description: "Monaco Grand Prix", date: "2024-05-26" },
-        { country: "Spain", description: "Spanish Grand Prix", date: "2024-06-09" },
-        { country: "Canada", description: "Canadian Grand Prix", date: "2024-06-23" },
-        { country: "Austria", description: "Austrian Grand Prix", date: "2024-06-30" },
-        { country: "United Kingdom", description: "British Grand Prix", date: "2024-07-07" },
-        { country: "Hungary", description: "Hungarian Grand Prix", date: "2024-07-21" },
-        { country: "Belgium", description: "Belgian Grand Prix", date: "2024-07-28" },
-        { country: "Netherlands", description: "Dutch Grand Prix", date: "2024-08-25" },
-        { country: "Italy", description: "Italian Grand Prix", date: "2024-09-01" },
-        { country: "Singapore", description: "Singapore Grand Prix", date: "2024-09-15" },
-        { country: "Japan", description: "Japanese Grand Prix", date: "2024-09-22" },
-        { country: "United States", description: "United States Grand Prix", date: "2024-10-20" },
-        { country: "Mexico", description: "Mexican Grand Prix", date: "2024-10-27" },
-        { country: "Brazil", description: "Brazilian Grand Prix", date: "2024-11-03" },
-        { country: "United States", description: "Las Vegas Grand Prix", date: "2024-11-23" },
-        { country: "Qatar", description: "Qatar Grand Prix", date: "2024-12-01" },
-
-        { country: "United Arab Emirates", description: "Abu Dhabi Grand Prix", date: "2024-12-08" }
+        { country: "Australia", description: "Australian Grand Prix", date: "2025-03-16" },
+        { country: "China", description: "Chinese Grand Prix", date: "2025-03-23" },
+        { country: "Japan", description: "Japanese Grand Prix", date: "2025-04-06" },
+        { country: "Bahrain", description: "Bahrain Grand Prix", date: "2025-04-13" },
+        { country: "Saudi Arabia", description: "Saudi Arabian Grand Prix", date: "2025-04-20" },
+        { country: "United States", description: "Miami Grand Prix", date: "2025-05-04" },
+        { country: "Italy", description: "Emilia Romagna Grand Prix", date: "2025-05-18" },
+        { country: "Monaco", description: "Monaco Grand Prix", date: "2025-05-25" },
+        { country: "Spain", description: "Spanish Grand Prix", date: "2025-06-01" },
+        { country: "Canada", description: "Canadian Grand Prix", date: "2025-06-15" },
+        { country: "Austria", description: "Austrian Grand Prix", date: "2025-06-29" },
+        { country: "United Kingdom", description: "British Grand Prix", date: "2025-07-06" },
+        { country: "Belgium", description: "Belgian Grand Prix", date: "2025-07-27" },
+        { country: "Hungary", description: "Hungarian Grand Prix", date: "2025-08-03" },
+        { country: "Netherlands", description: "Dutch Grand Prix", date: "2025-08-31" },
+        { country: "Italy", description: "Italian Grand Prix", date: "2025-09-07" },
+        { country: "Azerbaijan", description: "Azerbaijan Grand Prix", date: "2025-09-21" },
+        { country: "Singapore", description: "Singapore Grand Prix", date: "2025-10-05" },
+        { country: "United States", description: "United States Grand Prix", date: "2025-10-19" },
+        { country: "Mexico", description: "Mexican Grand Prix", date: "2025-10-26" },
+        { country: "Brazil", description: "Brazilian Grand Prix", date: "2025-11-09" },
+        { country: "United States", description: "Las Vegas Grand Prix", date: "2025-11-22" },
+        { country: "Qatar", description: "Qatar Grand Prix", date: "2025-11-30" },
+        { country: "United Arab Emirates", description: "Abu Dhabi Grand Prix", date: "2025-12-07" }
     ]), []);
 
 
@@ -47,7 +46,8 @@ const F1EventSessions = () => {
     useEffect(() => {
         const fetchSessions = async () => {
             try {
-                const apiUrl = `https://api.openf1.org/v1/sessions?year=${new Date().getFullYear()}`;
+                //To get current years data: ${ new Date().getFullYear() }
+                const apiUrl = `https://api.openf1.org/v1/sessions?year=2024`;
                 const response = await axios.get(apiUrl);
 
                 if (response.data) {

@@ -15,7 +15,7 @@ const Teams = () => {
                 alignItems:"center"
 
             }}>   
-            <h1 style={{ color:"white",fontWeight:"bolder", display: "flex", justifyContent: "center", alignItems: "center" ,margin:"5rem"}}>Data not available.</h1>
+<h1 style={{ color:"white",fontWeight:"bolder", display: "flex", justifyContent: "center", alignItems: "center" ,margin:"5rem"}}>Data not available.</h1>
             </div>
     </div>
     )
